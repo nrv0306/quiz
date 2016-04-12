@@ -1,7 +1,27 @@
+$(document).ready(function() {
 
+  var playerName = '';
 
+  $('#show-player-name').hide();
 
+  $('#player-name').focus();
 
+  function removeWelcomeScreen() {
+    $('#welcome-screen').detach();
+    $('#show-player-name').show().addClass('animated fadeIn');
+  };
+
+  // Store player name
+  $('#name-button').on('click', function(e) {
+    e.preventDefault();
+    playerName = $('#player-name').val();
+    console.log(playerName);
+    $('#show-player-name').text(playerName);
+    $('#welcome-screen').addClass('animated fadeOut');
+    setTimeout(removeWelcomeScreen, 1000);
+  });
+
+})
 
 
 
